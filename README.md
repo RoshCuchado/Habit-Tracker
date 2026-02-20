@@ -4,6 +4,8 @@ A minimal, dark-themed habit tracker that runs entirely in the browser. No accou
 
 ---
 
+**[→ Live Demo](https://habitylytrackerer.netlify.app/)**
+
 ## Features
 
 - **Multiple habits** — create as many tabs as you want, each with its own name, calendar, and streak
