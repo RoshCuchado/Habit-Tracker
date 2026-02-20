@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+  <title>Habit Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="page-center">
+
+  <!-- Habit tabs -->
+  <div class="tabs-bar" id="tabsBar">
+    <div class="tabs-scroll" id="tabsScroll">
+      <button class="tab-add-btn" id="tabAddBtn" title="New habit">+</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="label" id="habitLabel">Daily Ritual</div>
+    <h1>Habit Tracker</h1>
+    <p class="subtitle">mark each day you show up</p>
+    <div class="streak-display" id="streakDisplay"></div>
+  </header>
+
+  <div class="nav">
+    <button class="nav-btn" id="prevBtn">← prev</button>
+    <div class="month-label" id="monthLabel"></div>
+    <button class="nav-btn" id="nextBtn">next →</button>
+  </div>
+
+  <div class="calendar">
+    <div class="weekdays">
+      <div class="weekday">Sun</div>
+      <div class="weekday">Mon</div>
+      <div class="weekday">Tue</div>
+      <div class="weekday">Wed</div>
+      <div class="weekday">Thu</div>
+      <div class="weekday">Fri</div>
+      <div class="weekday">Sat</div>
+    </div>
+    <div class="days" id="daysGrid"></div>
+  </div>
+
+  <div class="streak-bar">
+    <div class="streak-label">this month</div>
+    <div class="bar-track">
+      <div class="bar-fill" id="barFill" style="width:0%"></div>
+    </div>
+    <div class="bar-pct" id="barPct">0%</div>
+  </div>
+
+  <div class="footer">
+    <div class="stats" id="stats"></div>
+    <button class="clear-btn" id="clearBtn">clear month</button>
+  </div>
+</div>
+
+<!-- Streak milestone overlay -->
+<div id="streakOverlay" class="overlay" role="dialog" aria-modal="true">
+  <canvas id="streakCanvas"></canvas>
+  <div class="overlay-content">
+    <div class="streak-name" id="streakName"></div>
+    <div class="char-wrap">
+      <div class="char-aura" id="charAura"></div>
+      <svg class="char-svg" id="charSvg" viewBox="0 0 100 130" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+    <div class="streak-days-label" id="streakDaysLabel"></div>
+    <div class="streak-flavor" id="streakFlavor"></div>
+    <div class="overlay-dismiss" id="streakDismiss">tap to continue</div>
+  </div>
+</div>
+
+<!-- Month complete overlay -->
+<div id="monthOverlay" class="overlay" role="dialog" aria-modal="true">
+  <canvas id="monthCanvas"></canvas>
+  <div class="overlay-content">
+    <div class="month-seal">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" id="sealSvg"></svg>
+    </div>
+    <div class="month-complete-title">Month<br><em>Complete.</em></div>
+    <div class="month-complete-sub" id="monthCompleteSub"></div>
+    <div class="overlay-dismiss" style="color:rgba(255,255,255,0.25)">tap to continue</div>
+  </div>
+</div>
+
+<!-- Custom modal (replaces browser prompt/confirm) -->
+<div id="customModal" class="modal-backdrop" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <div class="modal-icon" id="modalIcon"></div>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-sub" id="modalSub"></div>
+    <input class="modal-input" id="modalInput" type="text" autocomplete="off" spellcheck="false" />
+    <div class="modal-actions" id="modalActions"></div>
+  </div>
+</div>
+
+<!-- data.js must load before app.js — app depends on everything data exports -->
+<script src="data.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
